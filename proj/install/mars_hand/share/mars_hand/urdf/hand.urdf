@@ -1,0 +1,620 @@
+<?xml version="1.0"?>
+<robot name="robot_hand">
+
+  <!-- ============================================================
+       MARS PROJECT — IMPROVED HAND URDF
+       ============================================================
+       Improvements over original:
+         1. <collision> geometry on every link (needed for Gazebo)
+         2. <inertial> on every link (mass + inertia tensor)
+         3. Damping & friction on all revolute joints
+
+       Coordinate system (unchanged):
+         X = lateral (finger spread)
+         Y = front-back (palm thickness)
+         Z = up (finger extension)
+         Palm box: 100x22x110 mm
+  ============================================================ -->
+
+  <!-- MATERIALS -->
+  <material name="palm_grey">   <color rgba="0.80 0.80 0.78 1"/></material>
+  <material name="seg_grey">    <color rgba="0.68 0.68 0.66 1"/></material>
+  <material name="joint_dark">  <color rgba="0.20 0.20 0.20 1"/></material>
+  <material name="tip_white">   <color rgba="0.93 0.93 0.93 1"/></material>
+  <material name="fore_grey">   <color rgba="0.45 0.45 0.45 1"/></material>
+  <material name="wrist_grey">  <color rgba="0.35 0.35 0.35 1"/></material>
+
+  <!-- ============================================================
+       FOREARM
+  ============================================================ -->
+  <link name="forearm">
+    <inertial>
+      <mass value="0.15"/>
+      <origin xyz="0 0 0.11"/>
+      <inertia ixx="6.2e-4" ixy="0" ixz="0" iyy="6.2e-4" iyz="0" izz="9.7e-5"/>
+    </inertial>
+    <visual>
+      <geometry><cylinder length="0.22" radius="0.036"/></geometry>
+      <origin xyz="0 0 0.11"/>
+      <material name="fore_grey"/>
+    </visual>
+    <visual>
+      <geometry><cylinder length="0.008" radius="0.041"/></geometry>
+      <origin xyz="0 0 0.224"/>
+      <material name="joint_dark"/>
+    </visual>
+    <collision>
+      <geometry><cylinder length="0.22" radius="0.036"/></geometry>
+      <origin xyz="0 0 0.11"/>
+    </collision>
+  </link>
+
+  <!-- ============================================================
+       WRIST
+  ============================================================ -->
+  <link name="wrist_yaw_link">
+    <inertial>
+      <mass value="0.02"/>
+      <inertia ixx="7.2e-6" ixy="0" ixz="0" iyy="7.2e-6" iyz="0" izz="7.2e-6"/>
+    </inertial>
+    <visual>
+      <geometry><sphere radius="0.030"/></geometry>
+      <material name="joint_dark"/>
+    </visual>
+    <collision>
+      <geometry><sphere radius="0.030"/></geometry>
+    </collision>
+  </link>
+  <joint name="wrist_yaw" type="revolute">
+    <parent link="forearm"/>
+    <child  link="wrist_yaw_link"/>
+    <origin xyz="0 0 0.228"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.5" upper="1.5" effort="5" velocity="2"/>
+    <dynamics damping="0.1" friction="0.05"/>
+  </joint>
+
+  <link name="wrist_block">
+    <inertial>
+      <mass value="0.03"/>
+      <origin xyz="0 0 0.019"/>
+      <inertia ixx="9.5e-6" ixy="0" ixz="0" iyy="9.5e-6" iyz="0" izz="1.2e-5"/>
+    </inertial>
+    <visual>
+      <geometry><cylinder length="0.038" radius="0.028"/></geometry>
+      <origin xyz="0 0 0.019"/>
+      <material name="wrist_grey"/>
+    </visual>
+    <visual>
+      <geometry><box size="0.064 0.022 0.030"/></geometry>
+      <origin xyz="0 0 0.018"/>
+      <material name="joint_dark"/>
+    </visual>
+    <visual>
+      <geometry><cylinder length="0.007" radius="0.032"/></geometry>
+      <origin xyz="0 0 0.039"/>
+      <material name="joint_dark"/>
+    </visual>
+    <collision>
+      <geometry><cylinder length="0.038" radius="0.028"/></geometry>
+      <origin xyz="0 0 0.019"/>
+    </collision>
+  </link>
+  <joint name="wrist_pitch" type="revolute">
+    <parent link="wrist_yaw_link"/>
+    <child  link="wrist_block"/>
+    <origin xyz="0 0 0.006"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-0.87" upper="0.87" effort="5" velocity="2"/>
+    <dynamics damping="0.1" friction="0.05"/>
+  </joint>
+
+  <link name="wrist_dev_link">
+    <inertial>
+      <mass value="0.001"/>
+      <inertia ixx="1e-8" ixy="0" ixz="0" iyy="1e-8" iyz="0" izz="1e-8"/>
+    </inertial>
+  </link>
+  <joint name="wrist_dev" type="revolute">
+    <parent link="wrist_block"/>
+    <child  link="wrist_dev_link"/>
+    <origin xyz="0 0 0.042"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-0.35" upper="0.35" effort="5" velocity="2"/>
+    <dynamics damping="0.1" friction="0.05"/>
+  </joint>
+
+  <!-- ============================================================
+       PALM
+  ============================================================ -->
+  <link name="palm">
+    <inertial>
+      <mass value="0.05"/>
+      <inertia ixx="5.2e-5" ixy="0" ixz="0" iyy="9.2e-5" iyz="0" izz="4.4e-5"/>
+    </inertial>
+    <visual>
+      <geometry><box size="0.100 0.022 0.110"/></geometry>
+      <origin xyz="0 0 0"/>
+      <material name="palm_grey"/>
+    </visual>
+    <visual>
+      <geometry><box size="0.096 0.026 0.008"/></geometry>
+      <origin xyz="0 0 0.059"/>
+      <material name="joint_dark"/>
+    </visual>
+    <visual>
+      <geometry><box size="0.104 0.004 0.114"/></geometry>
+      <origin xyz="0 -0.013 0"/>
+      <material name="joint_dark"/>
+    </visual>
+    <visual>
+      <geometry><box size="0.014 0.030 0.038"/></geometry>
+      <origin xyz="0.057 0 -0.010"/>
+      <material name="joint_dark"/>
+    </visual>
+    <collision>
+      <geometry><box size="0.100 0.022 0.110"/></geometry>
+    </collision>
+  </link>
+
+  <joint name="palm_fixed" type="fixed">
+    <parent link="wrist_dev_link"/>
+    <child  link="palm"/>
+    <origin xyz="0 0 0.055"/>
+  </joint>
+
+  <!-- ============================================================
+       INDEX FINGER   seg1=44mm  seg2=28mm  seg3=20mm
+  ============================================================ -->
+  <link name="index_seg1">
+    <inertial>
+      <mass value="0.008"/>
+      <origin xyz="0 0 0.022"/>
+      <inertia ixx="1.3e-6" ixy="0" ixz="0" iyy="1.3e-6" iyz="0" izz="3.4e-7"/>
+    </inertial>
+    <visual>
+      <geometry><cylinder length="0.044" radius="0.0092"/></geometry>
+      <origin xyz="0 0 0.022"/>
+      <material name="seg_grey"/>
+    </visual>
+    <visual>
+      <geometry><sphere radius="0.0100"/></geometry>
+      <origin xyz="0 0 0.044"/>
+      <material name="joint_dark"/>
+    </visual>
+    <collision>
+      <geometry><cylinder length="0.044" radius="0.0092"/></geometry>
+      <origin xyz="0 0 0.022"/>
+    </collision>
+  </link>
+  <joint name="index_j1" type="revolute">
+    <parent link="palm"/>
+    <child  link="index_seg1"/>
+    <origin xyz="0.032 0 0.055"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="0" upper="0.9" effort="2" velocity="2"/>
+    <dynamics damping="0.05" friction="0.02"/>
+  </joint>
+
+  <link name="index_seg2">
+    <inertial>
+      <mass value="0.006"/>
+      <origin xyz="0 0 0.014"/>
+      <inertia ixx="5.0e-7" ixy="0" ixz="0" iyy="5.0e-7" iyz="0" izz="2.2e-7"/>
+    </inertial>
+    <visual>
+      <geometry><cylinder length="0.028" radius="0.0085"/></geometry>
+      <origin xyz="0 0 0.014"/>
+      <material name="seg_grey"/>
+    </visual>
+    <visual>
+      <geometry><sphere radius="0.0092"/></geometry>
+      <origin xyz="0 0 0.028"/>
+      <material name="joint_dark"/>
+    </visual>
+    <collision>
+      <geometry><cylinder length="0.028" radius="0.0085"/></geometry>
+      <origin xyz="0 0 0.014"/>
+    </collision>
+  </link>
+  <joint name="index_pip" type="revolute">
+    <parent link="index_seg1"/>
+    <child  link="index_seg2"/>
+    <origin xyz="0 0 0.044"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="0" upper="1.2" effort="2" velocity="2"/>
+    <dynamics damping="0.05" friction="0.02"/>
+  </joint>
+
+  <link name="index_seg3">
+    <inertial>
+      <mass value="0.004"/>
+      <origin xyz="0 0 0.010"/>
+      <inertia ixx="1.5e-7" ixy="0" ixz="0" iyy="1.5e-7" iyz="0" izz="1.2e-7"/>
+    </inertial>
+    <visual>
+      <geometry><cylinder length="0.020" radius="0.0078"/></geometry>
+      <origin xyz="0 0 0.010"/>
+      <material name="seg_grey"/>
+    </visual>
+    <visual>
+      <geometry><sphere radius="0.0086"/></geometry>
+      <origin xyz="0 0 0.021"/>
+      <material name="tip_white"/>
+    </visual>
+    <collision>
+      <geometry><cylinder length="0.020" radius="0.0078"/></geometry>
+      <origin xyz="0 0 0.010"/>
+    </collision>
+  </link>
+  <joint name="index_dip" type="revolute">
+    <parent link="index_seg2"/>
+    <child  link="index_seg3"/>
+    <origin xyz="0 0 0.028"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="0" upper="0.8" effort="2" velocity="2"/>
+    <dynamics damping="0.05" friction="0.02"/>
+  </joint>
+
+  <!-- ============================================================
+       MIDDLE FINGER   seg1=48mm  seg2=31mm  seg3=22mm
+  ============================================================ -->
+  <link name="middle_seg1">
+    <inertial>
+      <mass value="0.009"/>
+      <origin xyz="0 0 0.024"/>
+      <inertia ixx="1.8e-6" ixy="0" ixz="0" iyy="1.8e-6" iyz="0" izz="4.0e-7"/>
+    </inertial>
+    <visual>
+      <geometry><cylinder length="0.048" radius="0.0094"/></geometry>
+      <origin xyz="0 0 0.024"/>
+      <material name="seg_grey"/>
+    </visual>
+    <visual>
+      <geometry><sphere radius="0.0102"/></geometry>
+      <origin xyz="0 0 0.048"/>
+      <material name="joint_dark"/>
+    </visual>
+    <collision>
+      <geometry><cylinder length="0.048" radius="0.0094"/></geometry>
+      <origin xyz="0 0 0.024"/>
+    </collision>
+  </link>
+  <joint name="middle_j1" type="revolute">
+    <parent link="palm"/>
+    <child  link="middle_seg1"/>
+    <origin xyz="0.008 0 0.055"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="0" upper="0.9" effort="2" velocity="2"/>
+    <dynamics damping="0.05" friction="0.02"/>
+  </joint>
+
+  <link name="middle_seg2">
+    <inertial>
+      <mass value="0.006"/>
+      <origin xyz="0 0 0.0155"/>
+      <inertia ixx="6.0e-7" ixy="0" ixz="0" iyy="6.0e-7" iyz="0" izz="2.3e-7"/>
+    </inertial>
+    <visual>
+      <geometry><cylinder length="0.031" radius="0.0087"/></geometry>
+      <origin xyz="0 0 0.0155"/>
+      <material name="seg_grey"/>
+    </visual>
+    <visual>
+      <geometry><sphere radius="0.0094"/></geometry>
+      <origin xyz="0 0 0.031"/>
+      <material name="joint_dark"/>
+    </visual>
+    <collision>
+      <geometry><cylinder length="0.031" radius="0.0087"/></geometry>
+      <origin xyz="0 0 0.0155"/>
+    </collision>
+  </link>
+  <joint name="middle_pip" type="revolute">
+    <parent link="middle_seg1"/>
+    <child  link="middle_seg2"/>
+    <origin xyz="0 0 0.048"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="0" upper="1.2" effort="2" velocity="2"/>
+    <dynamics damping="0.05" friction="0.02"/>
+  </joint>
+
+  <link name="middle_seg3">
+    <inertial>
+      <mass value="0.005"/>
+      <origin xyz="0 0 0.011"/>
+      <inertia ixx="2.2e-7" ixy="0" ixz="0" iyy="2.2e-7" iyz="0" izz="1.6e-7"/>
+    </inertial>
+    <visual>
+      <geometry><cylinder length="0.022" radius="0.0080"/></geometry>
+      <origin xyz="0 0 0.011"/>
+      <material name="seg_grey"/>
+    </visual>
+    <visual>
+      <geometry><sphere radius="0.0088"/></geometry>
+      <origin xyz="0 0 0.023"/>
+      <material name="tip_white"/>
+    </visual>
+    <collision>
+      <geometry><cylinder length="0.022" radius="0.0080"/></geometry>
+      <origin xyz="0 0 0.011"/>
+    </collision>
+  </link>
+  <joint name="middle_dip" type="revolute">
+    <parent link="middle_seg2"/>
+    <child  link="middle_seg3"/>
+    <origin xyz="0 0 0.031"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="0" upper="0.8" effort="2" velocity="2"/>
+    <dynamics damping="0.05" friction="0.02"/>
+  </joint>
+
+  <!-- ============================================================
+       RING FINGER   seg1=44mm  seg2=28mm  seg3=20mm
+  ============================================================ -->
+  <link name="ring_seg1">
+    <inertial>
+      <mass value="0.008"/>
+      <origin xyz="0 0 0.022"/>
+      <inertia ixx="1.3e-6" ixy="0" ixz="0" iyy="1.3e-6" iyz="0" izz="3.2e-7"/>
+    </inertial>
+    <visual>
+      <geometry><cylinder length="0.044" radius="0.0090"/></geometry>
+      <origin xyz="0 0 0.022"/>
+      <material name="seg_grey"/>
+    </visual>
+    <visual>
+      <geometry><sphere radius="0.0097"/></geometry>
+      <origin xyz="0 0 0.044"/>
+      <material name="joint_dark"/>
+    </visual>
+    <collision>
+      <geometry><cylinder length="0.044" radius="0.0090"/></geometry>
+      <origin xyz="0 0 0.022"/>
+    </collision>
+  </link>
+  <joint name="ring_j1" type="revolute">
+    <parent link="palm"/>
+    <child  link="ring_seg1"/>
+    <origin xyz="-0.016 0 0.055"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="0" upper="0.9" effort="2" velocity="2"/>
+    <dynamics damping="0.05" friction="0.02"/>
+  </joint>
+
+  <link name="ring_seg2">
+    <inertial>
+      <mass value="0.006"/>
+      <origin xyz="0 0 0.014"/>
+      <inertia ixx="5.0e-7" ixy="0" ixz="0" iyy="5.0e-7" iyz="0" izz="2.1e-7"/>
+    </inertial>
+    <visual>
+      <geometry><cylinder length="0.028" radius="0.0083"/></geometry>
+      <origin xyz="0 0 0.014"/>
+      <material name="seg_grey"/>
+    </visual>
+    <visual>
+      <geometry><sphere radius="0.0090"/></geometry>
+      <origin xyz="0 0 0.028"/>
+      <material name="joint_dark"/>
+    </visual>
+    <collision>
+      <geometry><cylinder length="0.028" radius="0.0083"/></geometry>
+      <origin xyz="0 0 0.014"/>
+    </collision>
+  </link>
+  <joint name="ring_pip" type="revolute">
+    <parent link="ring_seg1"/>
+    <child  link="ring_seg2"/>
+    <origin xyz="0 0 0.044"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="0" upper="1.2" effort="2" velocity="2"/>
+    <dynamics damping="0.05" friction="0.02"/>
+  </joint>
+
+  <link name="ring_seg3">
+    <inertial>
+      <mass value="0.004"/>
+      <origin xyz="0 0 0.010"/>
+      <inertia ixx="1.5e-7" ixy="0" ixz="0" iyy="1.5e-7" iyz="0" izz="1.2e-7"/>
+    </inertial>
+    <visual>
+      <geometry><cylinder length="0.020" radius="0.0077"/></geometry>
+      <origin xyz="0 0 0.010"/>
+      <material name="seg_grey"/>
+    </visual>
+    <visual>
+      <geometry><sphere radius="0.0083"/></geometry>
+      <origin xyz="0 0 0.021"/>
+      <material name="tip_white"/>
+    </visual>
+    <collision>
+      <geometry><cylinder length="0.020" radius="0.0077"/></geometry>
+      <origin xyz="0 0 0.010"/>
+    </collision>
+  </link>
+  <joint name="ring_dip" type="revolute">
+    <parent link="ring_seg2"/>
+    <child  link="ring_seg3"/>
+    <origin xyz="0 0 0.028"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="0" upper="0.8" effort="2" velocity="2"/>
+    <dynamics damping="0.05" friction="0.02"/>
+  </joint>
+
+  <!-- ============================================================
+       PINKY FINGER   seg1=34mm  seg2=22mm  seg3=16mm
+  ============================================================ -->
+  <link name="pinky_seg1">
+    <inertial>
+      <mass value="0.006"/>
+      <origin xyz="0 0 0.017"/>
+      <inertia ixx="6.0e-7" ixy="0" ixz="0" iyy="6.0e-7" iyz="0" izz="1.9e-7"/>
+    </inertial>
+    <visual>
+      <geometry><cylinder length="0.034" radius="0.0080"/></geometry>
+      <origin xyz="0 0 0.017"/>
+      <material name="seg_grey"/>
+    </visual>
+    <visual>
+      <geometry><sphere radius="0.0086"/></geometry>
+      <origin xyz="0 0 0.034"/>
+      <material name="joint_dark"/>
+    </visual>
+    <collision>
+      <geometry><cylinder length="0.034" radius="0.0080"/></geometry>
+      <origin xyz="0 0 0.017"/>
+    </collision>
+  </link>
+  <joint name="pinky_j1" type="revolute">
+    <parent link="palm"/>
+    <child  link="pinky_seg1"/>
+    <origin xyz="-0.038 0 0.055"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="0" upper="0.9" effort="2" velocity="2"/>
+    <dynamics damping="0.05" friction="0.02"/>
+  </joint>
+
+  <link name="pinky_seg2">
+    <inertial>
+      <mass value="0.004"/>
+      <origin xyz="0 0 0.011"/>
+      <inertia ixx="2.0e-7" ixy="0" ixz="0" iyy="2.0e-7" iyz="0" izz="1.1e-7"/>
+    </inertial>
+    <visual>
+      <geometry><cylinder length="0.022" radius="0.0074"/></geometry>
+      <origin xyz="0 0 0.011"/>
+      <material name="seg_grey"/>
+    </visual>
+    <visual>
+      <geometry><sphere radius="0.0080"/></geometry>
+      <origin xyz="0 0 0.022"/>
+      <material name="joint_dark"/>
+    </visual>
+    <collision>
+      <geometry><cylinder length="0.022" radius="0.0074"/></geometry>
+      <origin xyz="0 0 0.011"/>
+    </collision>
+  </link>
+  <joint name="pinky_pip" type="revolute">
+    <parent link="pinky_seg1"/>
+    <child  link="pinky_seg2"/>
+    <origin xyz="0 0 0.034"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="0" upper="1.2" effort="2" velocity="2"/>
+    <dynamics damping="0.05" friction="0.02"/>
+  </joint>
+
+  <link name="pinky_seg3">
+    <inertial>
+      <mass value="0.003"/>
+      <origin xyz="0 0 0.008"/>
+      <inertia ixx="7.0e-8" ixy="0" ixz="0" iyy="7.0e-8" iyz="0" izz="6.9e-8"/>
+    </inertial>
+    <visual>
+      <geometry><cylinder length="0.016" radius="0.0068"/></geometry>
+      <origin xyz="0 0 0.008"/>
+      <material name="seg_grey"/>
+    </visual>
+    <visual>
+      <geometry><sphere radius="0.0074"/></geometry>
+      <origin xyz="0 0 0.017"/>
+      <material name="tip_white"/>
+    </visual>
+    <collision>
+      <geometry><cylinder length="0.016" radius="0.0068"/></geometry>
+      <origin xyz="0 0 0.008"/>
+    </collision>
+  </link>
+  <joint name="pinky_dip" type="revolute">
+    <parent link="pinky_seg2"/>
+    <child  link="pinky_seg3"/>
+    <origin xyz="0 0 0.022"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="0" upper="0.8" effort="2" velocity="2"/>
+    <dynamics damping="0.05" friction="0.02"/>
+  </joint>
+
+  <!-- ============================================================
+       THUMB   seg1=38mm  seg2=30mm
+  ============================================================ -->
+  <link name="thumb_bracket">
+    <inertial>
+      <mass value="0.005"/>
+      <inertia ixx="1.0e-7" ixy="0" ixz="0" iyy="1.0e-7" iyz="0" izz="1.0e-7"/>
+    </inertial>
+    <visual>
+      <geometry><box size="0.014 0.030 0.038"/></geometry>
+      <material name="joint_dark"/>
+    </visual>
+    <collision>
+      <geometry><box size="0.014 0.030 0.038"/></geometry>
+    </collision>
+  </link>
+  <joint name="thumb_cmc" type="fixed">
+    <parent link="palm"/>
+    <child  link="thumb_bracket"/>
+    <origin xyz="0.057 0 -0.008"/>
+  </joint>
+
+  <link name="thumb_seg1">
+    <inertial>
+      <mass value="0.008"/>
+      <origin xyz="0 0 0.019"/>
+      <inertia ixx="1.0e-6" ixy="0" ixz="0" iyy="1.0e-6" iyz="0" izz="3.7e-7"/>
+    </inertial>
+    <visual>
+      <geometry><cylinder length="0.038" radius="0.0096"/></geometry>
+      <origin xyz="0 0 0.019"/>
+      <material name="seg_grey"/>
+    </visual>
+    <visual>
+      <geometry><sphere radius="0.0104"/></geometry>
+      <origin xyz="0 0 0.038"/>
+      <material name="joint_dark"/>
+    </visual>
+    <collision>
+      <geometry><cylinder length="0.038" radius="0.0096"/></geometry>
+      <origin xyz="0 0 0.019"/>
+    </collision>
+  </link>
+  <joint name="thumb_j1" type="revolute">
+    <parent link="thumb_bracket"/>
+    <child  link="thumb_seg1"/>
+    <origin xyz="0.010 0 0" rpy="0 1.5708 0"/>
+    <axis xyz="-1 0 0"/>
+    <limit lower="-1.2" upper="0.3" effort="2" velocity="2"/>
+    <dynamics damping="0.05" friction="0.02"/>
+  </joint>
+
+  <link name="thumb_seg2">
+    <inertial>
+      <mass value="0.006"/>
+      <origin xyz="0 0 0.015"/>
+      <inertia ixx="5.0e-7" ixy="0" ixz="0" iyy="5.0e-7" iyz="0" izz="2.4e-7"/>
+    </inertial>
+    <visual>
+      <geometry><cylinder length="0.030" radius="0.0090"/></geometry>
+      <origin xyz="0 0 0.015"/>
+      <material name="seg_grey"/>
+    </visual>
+    <visual>
+      <geometry><sphere radius="0.0097"/></geometry>
+      <origin xyz="0 0 0.031"/>
+      <material name="tip_white"/>
+    </visual>
+    <collision>
+      <geometry><cylinder length="0.030" radius="0.0090"/></geometry>
+      <origin xyz="0 0 0.015"/>
+    </collision>
+  </link>
+  <joint name="thumb_pip" type="revolute">
+    <parent link="thumb_seg1"/>
+    <child  link="thumb_seg2"/>
+    <origin xyz="0 0 0.038"/>
+    <axis xyz="-1 0 0"/>
+    <limit lower="-0.8" upper="0.0" effort="2" velocity="2"/>
+    <dynamics damping="0.05" friction="0.02"/>
+  </joint>
+
+</robot>

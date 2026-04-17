@@ -1,0 +1,41 @@
+running egg_info
+creating ../../../build/mars_hand/mars_hand.egg-info
+writing ../../../build/mars_hand/mars_hand.egg-info/PKG-INFO
+writing dependency_links to ../../../build/mars_hand/mars_hand.egg-info/dependency_links.txt
+writing entry points to ../../../build/mars_hand/mars_hand.egg-info/entry_points.txt
+writing requirements to ../../../build/mars_hand/mars_hand.egg-info/requires.txt
+writing top-level names to ../../../build/mars_hand/mars_hand.egg-info/top_level.txt
+writing manifest file '../../../build/mars_hand/mars_hand.egg-info/SOURCES.txt'
+reading manifest file '../../../build/mars_hand/mars_hand.egg-info/SOURCES.txt'
+writing manifest file '../../../build/mars_hand/mars_hand.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/ubuntu/Downloads/proj/build/mars_hand/build
+creating /home/ubuntu/Downloads/proj/build/mars_hand/build/lib
+creating /home/ubuntu/Downloads/proj/build/mars_hand/build/lib/mars_hand
+copying mars_hand/__init__.py -> /home/ubuntu/Downloads/proj/build/mars_hand/build/lib/mars_hand
+copying mars_hand/serial_bridge.py -> /home/ubuntu/Downloads/proj/build/mars_hand/build/lib/mars_hand
+running install
+running install_lib
+creating /home/ubuntu/Downloads/proj/install/mars_hand/lib/python3.10/site-packages/mars_hand
+copying /home/ubuntu/Downloads/proj/build/mars_hand/build/lib/mars_hand/__init__.py -> /home/ubuntu/Downloads/proj/install/mars_hand/lib/python3.10/site-packages/mars_hand
+copying /home/ubuntu/Downloads/proj/build/mars_hand/build/lib/mars_hand/serial_bridge.py -> /home/ubuntu/Downloads/proj/install/mars_hand/lib/python3.10/site-packages/mars_hand
+byte-compiling /home/ubuntu/Downloads/proj/install/mars_hand/lib/python3.10/site-packages/mars_hand/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/ubuntu/Downloads/proj/install/mars_hand/lib/python3.10/site-packages/mars_hand/serial_bridge.py to serial_bridge.cpython-310.pyc
+running install_data
+creating /home/ubuntu/Downloads/proj/install/mars_hand/share/ament_index
+creating /home/ubuntu/Downloads/proj/install/mars_hand/share/ament_index/resource_index
+creating /home/ubuntu/Downloads/proj/install/mars_hand/share/ament_index/resource_index/packages
+copying resource/mars_hand -> /home/ubuntu/Downloads/proj/install/mars_hand/share/ament_index/resource_index/packages
+copying package.xml -> /home/ubuntu/Downloads/proj/install/mars_hand/share/mars_hand
+creating /home/ubuntu/Downloads/proj/install/mars_hand/share/mars_hand/launch
+copying launch/display.launch.py -> /home/ubuntu/Downloads/proj/install/mars_hand/share/mars_hand/launch
+creating /home/ubuntu/Downloads/proj/install/mars_hand/share/mars_hand/urdf
+copying urdf/hand.urdf -> /home/ubuntu/Downloads/proj/install/mars_hand/share/mars_hand/urdf
+creating /home/ubuntu/Downloads/proj/install/mars_hand/share/mars_hand/rviz
+copying rviz/config.rviz -> /home/ubuntu/Downloads/proj/install/mars_hand/share/mars_hand/rviz
+running install_egg_info
+Copying ../../../build/mars_hand/mars_hand.egg-info to /home/ubuntu/Downloads/proj/install/mars_hand/lib/python3.10/site-packages/mars_hand-1.0.0-py3.10.egg-info
+running install_scripts
+Installing serial_bridge script to /home/ubuntu/Downloads/proj/install/mars_hand/lib/mars_hand
+writing list of installed files to '/home/ubuntu/Downloads/proj/build/mars_hand/install.log'

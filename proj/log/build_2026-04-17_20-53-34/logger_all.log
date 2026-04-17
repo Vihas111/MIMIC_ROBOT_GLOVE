@@ -1,0 +1,169 @@
+[0.448s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--packages-select', 'mars_hand']
+[0.448s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=32, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=['mars_hand'], packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7a28e348cfd0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7a28e348cac0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7a28e348cac0>>)
+[0.656s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.657s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.657s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.657s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.657s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.657s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.657s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/ubuntu/Downloads/proj'
+[0.657s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.657s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.657s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.657s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.657s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.657s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.657s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.657s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.657s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.718s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.718s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.718s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.718s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.718s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.718s] Level 1:colcon.colcon_core.package_identification:_identify(arduino) by extensions ['ignore', 'ignore_ament_install']
+[0.718s] Level 1:colcon.colcon_core.package_identification:_identify(arduino) by extension 'ignore'
+[0.718s] Level 1:colcon.colcon_core.package_identification:_identify(arduino) by extension 'ignore_ament_install'
+[0.718s] Level 1:colcon.colcon_core.package_identification:_identify(arduino) by extensions ['colcon_pkg']
+[0.718s] Level 1:colcon.colcon_core.package_identification:_identify(arduino) by extension 'colcon_pkg'
+[0.718s] Level 1:colcon.colcon_core.package_identification:_identify(arduino) by extensions ['colcon_meta']
+[0.718s] Level 1:colcon.colcon_core.package_identification:_identify(arduino) by extension 'colcon_meta'
+[0.718s] Level 1:colcon.colcon_core.package_identification:_identify(arduino) by extensions ['ros']
+[0.718s] Level 1:colcon.colcon_core.package_identification:_identify(arduino) by extension 'ros'
+[0.718s] Level 1:colcon.colcon_core.package_identification:_identify(arduino) by extensions ['cmake', 'python']
+[0.718s] Level 1:colcon.colcon_core.package_identification:_identify(arduino) by extension 'cmake'
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(arduino) by extension 'python'
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(arduino) by extensions ['python_setup_py']
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(arduino) by extension 'python_setup_py'
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(arduino/glove_firmware) by extensions ['ignore', 'ignore_ament_install']
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(arduino/glove_firmware) by extension 'ignore'
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(arduino/glove_firmware) by extension 'ignore_ament_install'
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(arduino/glove_firmware) by extensions ['colcon_pkg']
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(arduino/glove_firmware) by extension 'colcon_pkg'
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(arduino/glove_firmware) by extensions ['colcon_meta']
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(arduino/glove_firmware) by extension 'colcon_meta'
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(arduino/glove_firmware) by extensions ['ros']
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(arduino/glove_firmware) by extension 'ros'
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(arduino/glove_firmware) by extensions ['cmake', 'python']
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(arduino/glove_firmware) by extension 'cmake'
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(arduino/glove_firmware) by extension 'python'
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(arduino/glove_firmware) by extensions ['python_setup_py']
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(arduino/glove_firmware) by extension 'python_setup_py'
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws) by extensions ['ignore', 'ignore_ament_install']
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws) by extension 'ignore'
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws) by extension 'ignore_ament_install'
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws) by extensions ['colcon_pkg']
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws) by extension 'colcon_pkg'
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws) by extensions ['colcon_meta']
+[0.720s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws) by extension 'colcon_meta'
+[0.720s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws) by extensions ['ros']
+[0.720s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws) by extension 'ros'
+[0.720s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws) by extensions ['cmake', 'python']
+[0.720s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws) by extension 'cmake'
+[0.720s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws) by extension 'python'
+[0.720s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws) by extensions ['python_setup_py']
+[0.720s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws) by extension 'python_setup_py'
+[0.720s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src) by extensions ['ignore', 'ignore_ament_install']
+[0.720s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src) by extension 'ignore'
+[0.720s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src) by extension 'ignore_ament_install'
+[0.720s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src) by extensions ['colcon_pkg']
+[0.720s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src) by extension 'colcon_pkg'
+[0.720s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src) by extensions ['colcon_meta']
+[0.720s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src) by extension 'colcon_meta'
+[0.720s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src) by extensions ['ros']
+[0.720s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src) by extension 'ros'
+[0.720s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src) by extensions ['cmake', 'python']
+[0.720s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src) by extension 'cmake'
+[0.720s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src) by extension 'python'
+[0.720s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src) by extensions ['python_setup_py']
+[0.720s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src) by extension 'python_setup_py'
+[0.720s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/mars_hand) by extensions ['ignore', 'ignore_ament_install']
+[0.720s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/mars_hand) by extension 'ignore'
+[0.720s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/mars_hand) by extension 'ignore_ament_install'
+[0.720s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/mars_hand) by extensions ['colcon_pkg']
+[0.720s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/mars_hand) by extension 'colcon_pkg'
+[0.720s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/mars_hand) by extensions ['colcon_meta']
+[0.720s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/mars_hand) by extension 'colcon_meta'
+[0.720s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/mars_hand) by extensions ['ros']
+[0.720s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/mars_hand) by extension 'ros'
+[0.724s] DEBUG:colcon.colcon_core.package_identification:Package 'ros2_ws/src/mars_hand' with type 'ros.ament_python' and name 'mars_hand'
+[0.724s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.724s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.724s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.724s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.724s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.752s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.752s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.760s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 0 installed packages in /home/ubuntu/ros2_ws/install
+[0.761s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 433 installed packages in /opt/ros/humble
+[0.762s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.794s] Level 5:colcon.colcon_core.verb:set package 'mars_hand' build argument 'cmake_args' from command line to 'None'
+[0.794s] Level 5:colcon.colcon_core.verb:set package 'mars_hand' build argument 'cmake_target' from command line to 'None'
+[0.794s] Level 5:colcon.colcon_core.verb:set package 'mars_hand' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.794s] Level 5:colcon.colcon_core.verb:set package 'mars_hand' build argument 'cmake_clean_cache' from command line to 'False'
+[0.794s] Level 5:colcon.colcon_core.verb:set package 'mars_hand' build argument 'cmake_clean_first' from command line to 'False'
+[0.794s] Level 5:colcon.colcon_core.verb:set package 'mars_hand' build argument 'cmake_force_configure' from command line to 'False'
+[0.794s] Level 5:colcon.colcon_core.verb:set package 'mars_hand' build argument 'ament_cmake_args' from command line to 'None'
+[0.794s] Level 5:colcon.colcon_core.verb:set package 'mars_hand' build argument 'catkin_cmake_args' from command line to 'None'
+[0.794s] Level 5:colcon.colcon_core.verb:set package 'mars_hand' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.794s] DEBUG:colcon.colcon_core.verb:Building package 'mars_hand' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/ubuntu/Downloads/proj/build/mars_hand', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/ubuntu/Downloads/proj/install/mars_hand', 'merge_install': False, 'path': '/home/ubuntu/Downloads/proj/ros2_ws/src/mars_hand', 'symlink_install': False, 'test_result_base': None}
+[0.794s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.795s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.795s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/ubuntu/Downloads/proj/ros2_ws/src/mars_hand' with build type 'ament_python'
+[0.795s] Level 1:colcon.colcon_core.shell:create_environment_hook('mars_hand', 'ament_prefix_path')
+[0.808s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.808s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/Downloads/proj/install/mars_hand/share/mars_hand/hook/ament_prefix_path.ps1'
+[0.810s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ubuntu/Downloads/proj/install/mars_hand/share/mars_hand/hook/ament_prefix_path.dsv'
+[0.811s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/Downloads/proj/install/mars_hand/share/mars_hand/hook/ament_prefix_path.sh'
+[0.812s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.812s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.997s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/ubuntu/Downloads/proj/ros2_ws/src/mars_hand'
+[0.997s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.997s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.819s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/ubuntu/Downloads/proj/ros2_ws/src/mars_hand': PYTHONPATH=/home/ubuntu/Downloads/proj/build/mars_hand/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ubuntu/Downloads/proj/install/mars_hand/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/mars_hand build --build-base /home/ubuntu/Downloads/proj/build/mars_hand/build install --record /home/ubuntu/Downloads/proj/build/mars_hand/install.log --single-version-externally-managed install_data
+[2.012s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/ubuntu/Downloads/proj/ros2_ws/src/mars_hand' returned '0': PYTHONPATH=/home/ubuntu/Downloads/proj/build/mars_hand/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ubuntu/Downloads/proj/install/mars_hand/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/mars_hand build --build-base /home/ubuntu/Downloads/proj/build/mars_hand/build install --record /home/ubuntu/Downloads/proj/build/mars_hand/install.log --single-version-externally-managed install_data
+[2.026s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Downloads/proj/install/mars_hand' for CMake module files
+[2.027s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Downloads/proj/install/mars_hand' for CMake config files
+[2.027s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Downloads/proj/install/mars_hand/lib'
+[2.027s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Downloads/proj/install/mars_hand/bin'
+[2.027s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Downloads/proj/install/mars_hand/lib/pkgconfig/mars_hand.pc'
+[2.027s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Downloads/proj/install/mars_hand/lib/python3.10/site-packages'
+[2.027s] Level 1:colcon.colcon_core.shell:create_environment_hook('mars_hand', 'pythonpath')
+[2.028s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/Downloads/proj/install/mars_hand/share/mars_hand/hook/pythonpath.ps1'
+[2.028s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ubuntu/Downloads/proj/install/mars_hand/share/mars_hand/hook/pythonpath.dsv'
+[2.028s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/Downloads/proj/install/mars_hand/share/mars_hand/hook/pythonpath.sh'
+[2.029s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/Downloads/proj/install/mars_hand/bin'
+[2.029s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(mars_hand)
+[2.029s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/Downloads/proj/install/mars_hand/share/mars_hand/package.ps1'
+[2.030s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/ubuntu/Downloads/proj/install/mars_hand/share/mars_hand/package.dsv'
+[2.031s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/Downloads/proj/install/mars_hand/share/mars_hand/package.sh'
+[2.032s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/Downloads/proj/install/mars_hand/share/mars_hand/package.bash'
+[2.034s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/Downloads/proj/install/mars_hand/share/mars_hand/package.zsh'
+[2.037s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/ubuntu/Downloads/proj/install/mars_hand/share/colcon-core/packages/mars_hand)
+[2.037s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[2.037s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[2.037s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[2.038s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[2.052s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[2.052s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[2.052s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[2.071s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[2.072s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/ubuntu/Downloads/proj/install/local_setup.ps1'
+[2.074s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/ubuntu/Downloads/proj/install/_local_setup_util_ps1.py'
+[2.077s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/ubuntu/Downloads/proj/install/setup.ps1'
+[2.079s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/ubuntu/Downloads/proj/install/local_setup.sh'
+[2.080s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/ubuntu/Downloads/proj/install/_local_setup_util_sh.py'
+[2.081s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/ubuntu/Downloads/proj/install/setup.sh'
+[2.082s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/ubuntu/Downloads/proj/install/local_setup.bash'
+[2.083s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/ubuntu/Downloads/proj/install/setup.bash'
+[2.084s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/ubuntu/Downloads/proj/install/local_setup.zsh'
+[2.085s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/ubuntu/Downloads/proj/install/setup.zsh'
