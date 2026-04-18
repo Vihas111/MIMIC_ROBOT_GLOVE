@@ -1,4 +1,4 @@
-# MARS Project — Human Hand Mimic Robot
+# Human Hand Mimic Robot
 
 A glove equipped with flex sensors and an IMU that controls a simulated
 robot hand in real time via ROS 2 and RViz.
