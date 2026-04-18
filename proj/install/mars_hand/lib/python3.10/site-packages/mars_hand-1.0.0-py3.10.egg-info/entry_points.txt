@@ -1,3 +1,0 @@
-[console_scripts]
-serial_bridge = mars_hand.serial_bridge:main
-
