@@ -12,7 +12,7 @@ hand model on screen mirrors every movement.
 | Qty | Component | Purpose |
 |-----|-----------|---------|
 | 1 | Arduino Uno | Microcontroller |
-| 5 | Flex sensors | One per finger (thumb, index, middle, ring, pinky) |
+| 5 | Flex sensors(2.2 inch) | One per finger (thumb, index, middle, ring, pinky) |
 | 5 | 10 kOhm resistors | Voltage divider pull-downs for flex sensors |
 | 1 | Breadboard | Prototyping connections |
 | — | Jumper wires | Connections |
