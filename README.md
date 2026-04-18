@@ -44,7 +44,7 @@ MARS Project/
 ├── WIRING.md                    ← detailed wiring diagram & calibration
 ├── arduino/
 │   └── glove_firmware/
-│       └── glove_firmware.ino   ← Arduino sketch (reads sensors, sends serial)
+│       └── glov.ino   ← Arduino sketch (reads sensors, sends serial)
 └── ros2_ws/
     └── src/
         └── mars_hand/           ← ROS 2 Python package
