@@ -110,8 +110,6 @@ Each flex sensor is wired as a voltage divider:
                          GND
 ```
 
-> **Why software I2C?** The Uno shares A4/A5 with hardware I2C.  The
-> firmware bit-bangs I2C on D2/D3 so all five analog pins stay free.
 
 See **[WIRING.md](WIRING.md)** for the full breadboard layout, MPU-6050
 connections, pull-up resistor notes, and glove assembly tips.
@@ -123,7 +121,6 @@ connections, pull-up resistor notes, and glove assembly tips.
 
 Follow the wiring diagram in [WIRING.md](WIRING.md).  Double-check:
 - Each flex sensor has its own 10 kOhm pull-down resistor
-- MPU-6050 AD0 pin is connected to GND (sets address 0x68)
 - No wires on A5 (it is unused)
 
 ### Step 2 — Upload Arduino Firmware
@@ -235,7 +232,7 @@ roll/pitch/yaw values:
 
 ## Joint Map
 
-The URDF has 17 revolute joints controlled by 5 flex sensors + 1 IMU:
+The URDF has 17 revolute joints controlled by 5 flex sensors:
 
 | Sensor | Drives Joints | Coupling |
 |--------|--------------|----------|
