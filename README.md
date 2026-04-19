@@ -216,6 +216,9 @@ roll/pitch/yaw values:
 ```bash
     roll_offset:=3.5 pitch_offset:=-1.2 yaw_offset:=0.0
 ```
+## 🎥 Demo Video
+
+[▶️ Watch the Robot Glove Demo](./MIMIC_GLOVE_DEMO.mp4)
 
 
 ## Troubleshooting
